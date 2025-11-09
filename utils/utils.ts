@@ -14,7 +14,7 @@ export const SPGNFTContractAddress: Address =
 
 // This is a pre-configured PIL Flavor:
 // https://docs.story.foundation/concepts/programmable-ip-license/pil-flavors#flavor-%231%3A-non-commercial-social-remixing
-export const NonCommercialSocialRemixingTermsId = '1'
+export const NonCommercialSocialRemixingTermsId: number = 1
 export const NonCommercialSocialRemixingTerms: LicenseTerms = {
     transferable: true,
     royaltyPolicy: zeroAddress,
