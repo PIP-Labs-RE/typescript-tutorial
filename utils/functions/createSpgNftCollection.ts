@@ -1,7 +1,16 @@
 import { zeroAddress } from 'viem'
 import { client } from '../config'
+import { uploadJSONToIPFS } from './uploadToIpfs'
 
 const main = async function () {
+    const collectionData = {
+        name: 'RCADE Stems',
+        description: 'All licensed stems on RCADE, the music platform built for the remix era.',
+        image: 'https://ttmbengqanqzfrkjajgk.supabase.co/storage/v1/object/public/images/rcade-icon.png',
+        banner_image: 'https://ttmbengqanqzfrkjajgk.supabase.co/storage/v1/object/public/images/rcade-banner.jpg',
+        external_link: 'https://rcade.co',
+    }
+    const collectionIpfsHash = await uploadJSONToIPFS(collectionData)
     // Create a new SPG NFT collection
     //
     // NOTE: Use this code to create a new SPG NFT collection. You can then use the
@@ -13,12 +22,12 @@ const main = async function () {
     // you can use it in SPG functions.
     //
     const newCollection = await client.nftClient.createNFTCollection({
-        name: 'Test NFTs',
-        symbol: 'TEST',
+        name: 'RCADE',
+        symbol: 'RCADE',
         isPublicMinting: true,
         mintOpen: true,
         mintFeeRecipient: zeroAddress,
-        contractURI: '',
+        contractURI: `https://ipfs.io/ipfs/${collectionIpfsHash}`,
     })
 
     console.log('New collection created:', {
