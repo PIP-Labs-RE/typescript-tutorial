@@ -13,8 +13,6 @@ const main = async function () {
         licenseTermsId: LICENSE_TERMS_ID,
         licensorIpId: IP_ID,
         amount: 1,
-        maxMintingFee: BigInt(0), // disabled
-        maxRevenueShare: 100, // default
     })
 
     console.log('License minted:', {
