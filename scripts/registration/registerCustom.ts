@@ -4,6 +4,7 @@ import { client, account, networkInfo } from '../../utils/config'
 import { uploadJSONToIPFS } from '../../utils/functions/uploadToIpfs'
 import { createHash } from 'crypto'
 import { IpMetadata, PILFlavor, WIP_TOKEN_ADDRESS } from '@story-protocol/core-sdk'
+import { parseEther } from 'viem'
 
 const main = async function () {
     // 1. Set up your IP Metadata
@@ -69,8 +70,8 @@ const main = async function () {
         licenseTermsData: [
             {
                 terms: PILFlavor.commercialRemix({
-                    commercialRevShare: 5,
-                    defaultMintingFee: 1,
+                    commercialRevShare: 5, // 5%
+                    defaultMintingFee: parseEther('1'), // 1 $IP
                     currency: WIP_TOKEN_ADDRESS,
                 }),
             },

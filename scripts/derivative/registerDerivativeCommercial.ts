@@ -43,11 +43,11 @@ const main = async function () {
     const parentClaimRevenue = await client.royalty.claimAllRevenue({
         ancestorIpId: PARENT_IP_ID,
         claimer: PARENT_IP_ID,
-        childIpIds: [childIp.ipId as Address],
-        royaltyPolicies: [RoyaltyPolicyLRP],
         currencyTokens: [WIP_TOKEN_ADDRESS],
+        childIpIds: [],
+        royaltyPolicies: [],
     })
-    console.log('Parent claimed revenue receipt:', parentClaimRevenue)
+    console.log('Parent claimed revenue receipt:', parentClaimRevenue.claimedTokens)
 }
 
 main()

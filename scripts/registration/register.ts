@@ -65,8 +65,8 @@ const main = async function () {
         licenseTermsData: [
             {
                 terms: PILFlavor.commercialRemix({
-                    commercialRevShare: 5,
-                    defaultMintingFee: parseEther('1'),
+                    commercialRevShare: 5, // 5%
+                    defaultMintingFee: parseEther('1'), // 1 $IP
                     currency: WIP_TOKEN_ADDRESS,
                 }),
             },
